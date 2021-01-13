@@ -37,5 +37,5 @@ jobs:
         python3 main.py
     - name: copy files from output folder to aws ec3
       run: |
-        scp output/* ec2-user@ec2-18.208.30.227.compute-1.amazonaws.com:~/
+        scp output/* ec2-user@ec2-18.208.30.227:~/
 
