@@ -37,5 +37,5 @@ jobs:
         python3 main.py
     - name: copy files from output folder to aws ec3
       run: |
-        aws s3 sync . s3://fahimweb
+        scp output/* ec2-user@3.87.30.73
 
