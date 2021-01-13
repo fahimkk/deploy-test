@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  deploy:
     name: Deploy
     runs-on: ubuntu-latest
 
@@ -36,5 +36,6 @@ jobs:
       run: |
         python3 main.py
     - name: copy files from output folder to aws ec3
-      run: scp output/* ec2-user@ec2-3-87-30-73.compute-1.amazonaws.com:~/
+      run: |
+        scp output/* ec2-user@ec2-3-87-30-73.compute-1.amazonaws.com:~/
 
