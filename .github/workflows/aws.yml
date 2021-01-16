@@ -33,7 +33,6 @@ jobs:
         python3 main.py
     - name: copy files from output folder to aws ec2
       run: |
-        cat ${{ secrets.AWS_PEM }}
         scp -i ${{ secrets.AWS_PEM }} . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
         
         
