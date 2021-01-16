@@ -32,9 +32,10 @@ jobs:
       run: |
         python3 main.py
     - name: copy files from output folder to aws ec2
-      env:
-        pem: ${{ secrets.AWS_PEM }}
       run: |
-        scp -i env.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        mkdir ~/.ssh && cd .ssh
+        echo "${{ secrets.AWS_PEM }}" >> ~/.ssh/aws_1.pem
+        chmod 600 ~/.ssh/aws_1.pem
+        scp -i aws_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
         
         
