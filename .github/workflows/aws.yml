@@ -34,7 +34,7 @@ jobs:
       run: |
         ls
         mkdir .ssh && cd .ssh
-        wget https://fahimweb.s3.ap-south-1.amazonaws.com/aws_fahimkk_1.pem
+        aws s3 cp s3://fahimweb/aws_fahimkk_1.pem .
         pwd
         ls
         cat aws_fahimkk_1.pem
