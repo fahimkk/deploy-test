@@ -34,10 +34,13 @@ jobs:
       run: |
         mkdir .ssh && cd .ssh
         aws s3 sync s3://fahimweb/aws_fahimkk_1.pem .
+        pwd
+        ls
   
     - name: copy files from output folder to aws ec2
       run: |
         pwd
+        ls
 #        cd /.ssh && ${{ secrets.AWS_EC2 }}
 #        ${{ secrets.AWS_S3 }}
 
