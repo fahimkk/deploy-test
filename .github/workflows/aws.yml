@@ -37,7 +37,7 @@ jobs:
   
     - name: copy files from output folder to aws ec2
       run: |
-        ${{ secrets.AWS_EC2 }}
+        cd /.ssh && ${{ secrets.AWS_EC2 }}
 #        ${{ secrets.AWS_S3 }}
 
         
