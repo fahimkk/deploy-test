@@ -31,10 +31,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
   
-      env:
-        PEM_key: ${{ secrets.AWS_PEM }}
     - name: copy files from output folder to aws ec2
       run: |
-        scp -i $PEM_key . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        scp -i ${{secrets.AWS_PEM }} . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
         
         
