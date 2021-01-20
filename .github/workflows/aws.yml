@@ -3,6 +3,23 @@ on:
   push:
     branches: [master]
 jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          sudo apt-get install python3-pip
+          pip3 install markdown2
+          pip3 install jinja2
+          
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -16,26 +33,15 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         key: ${{ secrets.AWS_PEM }}
         aws-region: us-east-2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        sudo apt-get install python3-pip
-        pip3 install markdown2
-        pip3 install jinja2
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
     - name: run main.py file to create html files
       run: |
         python3 main.py
     - name: copy files from output folder to aws ec2
       run: |
         mkdir .ssh
-        cp aws_1.pem .ssh/ && cd .ssh
-        chmod 600 aws_1.pem
-        scp -i aws_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        cp aws_1.pem .ssh/aws_fahimkk_1.pem && cd .ssh
+        chmod 600 aws_fahimkk_1.pem
+        scp -i aws_fahimkk_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
         
         
