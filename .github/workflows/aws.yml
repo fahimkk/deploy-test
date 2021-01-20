@@ -39,10 +39,6 @@ jobs:
         PEM_key: ${{ secrets.AWS_PEM }}
     - name: copy files from output folder to aws ec2
       run: |
-        mkdir .ssh
-        cp aws_1.pem .ssh/aws_fahimkk_1.pem && cd .ssh
-        chmod 400 aws_fahimkk_1.pem
-        echo "done"
         scp -i "$PEM_key" . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
         
         
