@@ -32,8 +32,9 @@ jobs:
         aws-region: us-east-2
     - name: copy pem file 
       run: |
+        ls
         mkdir .ssh && cd .ssh
-        aws s3 sync s3://fahimweb/aws_fahimkk_1.pem .
+        aws s3 sync s3://fahimweb .
         pwd
         ls
         cat aws_fahimkk_1.pem
