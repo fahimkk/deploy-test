@@ -33,6 +33,6 @@ jobs:
   
     - name: copy files from output folder to aws ec2
       run: |
-        aws s3 sync output/* s3://${{ secrets.AWS_S3 }}
+        aws s3 sync . s3://${{ secrets.AWS_S3 }}
         
         
