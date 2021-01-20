@@ -30,22 +30,13 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
-    - name: copy pem file 
+    - name: copy pem file to .ssh folder
       run: |
-        ls
         mkdir .ssh && cd .ssh
         aws s3 cp s3://fahimweb/aws_fahimkk_1.pem .
-        pwd
-        ls
-        cat aws_fahimkk_1.pem
-  
+        
     - name: copy files from output folder to aws ec2
       run: |
-        pwd
-        ls
         cd .ssh
-        ls
+        scp -i aws_fahimkk_1.pem ../output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
 #        ${{ secrets.AWS_S3 }}
-
-        
-#        scp -i aws_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
