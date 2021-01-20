@@ -34,6 +34,7 @@ jobs:
       run: |
         mkdir .ssh && cd .ssh
         aws s3 cp s3://fahimweb/aws_fahimkk_1.pem .
+        aws s3 cp s3://fahimweb/known_hosts .
         
     - name: copy files from output folder to aws ec2
       run: |
