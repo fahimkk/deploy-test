@@ -33,6 +33,6 @@ jobs:
   
     - name: copy files from output folder to aws ec2
       run: |
-        scp -i aws_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        aws s3 sync . s3://fahimweb
         
         
