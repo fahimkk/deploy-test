@@ -33,6 +33,8 @@ jobs:
   
     - name: copy files from output folder to aws ec2
       run: |
-        ${{ secrets.AWS_S3 }}
+        ${{ secrets.AWS_EC2 }}
+#        ${{ secrets.AWS_S3 }}
+
         
 #        scp -i aws_1.pem . ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
