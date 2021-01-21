@@ -39,10 +39,6 @@ jobs:
         
     - name: copy files from output folder in github repo to aws ec2 instance
       run: |
-        pwd
-        ls
         cd ~/.ssh
         chmod 400 aws_fahimkk_1.pem
-        ls /home/runner/work/deploy-test/deploy-test/output
-        
-  #      scp -i aws_fahimkk_1.pem ../runner/work/deploy-test/deploy-test/output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        scp -i aws_fahimkk_1.pem /home/runner/work/deploy-test/deploy-test/output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
