@@ -34,8 +34,8 @@ jobs:
       run: |
         mkdir ~/.ssh && cd ~/.ssh
         aws s3 cp s3://fahimweb/aws_fahimkk_1.pem .
+        aws s3 cp s3://fahimweb/config .
 #        aws s3 cp s3://fahimweb/known_hosts .
-#        aws s3 cp s3://fahimweb/config .
         
     - name: copy files from output folder in github repo to aws ec2 instance
       run: |
