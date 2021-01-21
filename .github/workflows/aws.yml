@@ -39,4 +39,5 @@ jobs:
     - name: copy files from output folder in github repo to aws ec2 instance
       run: |
         cd .ssh
+        ssh -o StrictHostKeyChecking=no [ec2-3-224-202-156.compute-1.amazonaws.com]
         scp -i aws_fahimkk_1.pem ../output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
