@@ -32,12 +32,12 @@ jobs:
         aws-region: us-east-2
     - name: copy pem key file and known_hosts from s3 bucket to .ssh folder
       run: |
-        mkdir .ssh && cd .ssh
+        mkdir ~/.ssh && cd ~/.ssh
         aws s3 cp s3://fahimweb/aws_fahimkk_1.pem .
         aws s3 cp s3://fahimweb/known_hosts .
         aws s3 cp s3://fahimweb/config .
         
     - name: copy files from output folder in github repo to aws ec2 instance
       run: |
-        cd .ssh
+        cd ~/.ssh
         scp -i aws_fahimkk_1.pem ../output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
