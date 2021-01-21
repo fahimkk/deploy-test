@@ -39,5 +39,5 @@ jobs:
     - name: copy files from output folder to aws ec2
       run: |
         cd .ssh
-        scp -i aws_fahimkk_1.pem ../output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
+        scp ../output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
 #        ${{ secrets.AWS_S3 }}
