@@ -42,7 +42,4 @@ jobs:
       run: |
         cd ~/.ssh
         chmod 400 aws_fahimkk_1.pem
-        scp -i aws_fahimkk_1.pem /home/runner/work/deploy-test/deploy-test/output.zip ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:~/
-        ssh -i aws_fahimkk_1.pem ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com
-        ls
-    
+        scp -i aws_fahimkk_1.pem -r /home/runner/work/deploy-test/deploy-test/output/ ec2-user@ec2-3-224-202-156.compute-1.amazonaws.com:/usr/share/nginx/html
